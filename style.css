@@ -1,0 +1,17 @@
+/* =========================================
+   style.css
+   Day 1: base reset only.
+   Typography, colors, spacing, layout come
+   on Day 4 (styling) and Day 5-6 (responsive).
+   ========================================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.5;
+}
