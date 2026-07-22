@@ -15,3 +15,43 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   line-height: 1.5;
 }
+
+/* Day 2: minimal layout only — real typography, color, and
+   spacing polish happens on Day 4. */
+
+.hero {
+  padding: 4rem 1.5rem;
+}
+
+.hero-content {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+}
+
+.highlight {
+  font-weight: bold;
+}
+
+.tagline {
+  margin: 1rem 0;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  border: 1px solid #000;
+  text-decoration: none;
+  color: inherit;
+}
+
+#about {
+  padding: 3rem 1.5rem;
+  max-width: 700px;
+  margin: 0 auto;
+}
