@@ -31,3 +31,5 @@ portfolio/
   initialized project skeleton (HTML/CSS/JS structure).
 - Day 2: Learned HTML basics and built the Home, Hero, and About sections
   with real content and semantic markup.
+- Day 3: Added semantic navigation, Skills, Education, and Contact form
+  sections, plus a real footer with GitHub/LinkedIn links.

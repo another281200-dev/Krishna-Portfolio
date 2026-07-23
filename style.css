@@ -55,3 +55,78 @@ body {
   max-width: 700px;
   margin: 0 auto;
 }
+
+/* Day 3: minimal layout for nav, skills, education, contact, footer.
+   Full visual styling happens Day 4-6. */
+
+nav {
+  display: flex;
+  gap: 1.5rem;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid #ddd;
+}
+
+nav a {
+  text-decoration: none;
+  color: inherit;
+}
+
+#skills,
+#education,
+#contact {
+  padding: 3rem 1.5rem;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.skills-list {
+  list-style: none;
+  padding: 0;
+}
+
+.skills-list li {
+  margin-bottom: 0.5rem;
+}
+
+#contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+#contact-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  font-size: 0.9rem;
+}
+
+#contact-form input,
+#contact-form textarea {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  font: inherit;
+}
+
+#contact-form button {
+  align-self: flex-start;
+  padding: 0.6rem 1.2rem;
+  border: 1px solid #000;
+  background: none;
+  font: inherit;
+  cursor: pointer;
+}
+
+footer {
+  padding: 2rem 1.5rem;
+  border-top: 1px solid #ddd;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer-links a {
+  margin-left: 1rem;
+  color: inherit;
+}
