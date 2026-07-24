@@ -33,3 +33,5 @@ portfolio/
   with real content and semantic markup.
 - Day 3: Added semantic navigation, Skills, Education, and Contact form
   sections, plus a real footer with GitHub/LinkedIn links.
+- Day 4: Styled the site with CSS — custom properties for a color system,
+  typography scale, spacing scale, and styled buttons/nav/form/cards.
