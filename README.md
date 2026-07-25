@@ -35,3 +35,5 @@ portfolio/
   sections, plus a real footer with GitHub/LinkedIn links.
 - Day 4: Styled the site with CSS — custom properties for a color system,
   typography scale, spacing scale, and styled buttons/nav/form/cards.
+- Day 5: Rebuilt key sections with Flexbox and CSS Grid — a flex split
+  hero layout, a skills grid, and a two-column contact grid.

@@ -89,17 +89,57 @@ nav a:hover {
   border-bottom-color: var(--color-primary);
 }
 
-/* ---------- Hero ---------- */
+/* ---------- Hero (Day 5: Flexbox split layout) ---------- */
 
 .hero {
   padding: var(--space-xl) var(--space-lg);
   background: var(--color-bg-alt);
   border-bottom: 1px solid var(--color-border);
+  display: flex;
+  gap: var(--space-xl);
+  align-items: center;
+  max-width: 1100px;
+  margin: 0 auto;
 }
 
 .hero-content {
-  max-width: 700px;
-  margin: 0 auto;
+  flex: 2;
+  min-width: 0;
+}
+
+.hero-actions {
+  display: flex;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+}
+
+.hero-facts {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  min-width: 220px;
+}
+
+.fact-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding: var(--space-sm);
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+}
+
+.fact-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-muted);
+}
+
+.fact-value {
+  font-weight: 600;
 }
 
 .eyebrow {
@@ -154,14 +194,29 @@ nav a:hover {
   transform: translateY(-1px);
 }
 
-/* ---------- Section layout ---------- */
+.btn-outline {
+  background: transparent;
+  color: var(--color-primary);
+}
+
+.btn-outline:hover {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+/* ---------- Section layout (Day 5: wider containers for grid content) ---------- */
 
 #about,
-#skills,
-#education,
-#contact {
+#education {
   padding: var(--space-xl) var(--space-lg);
   max-width: 700px;
+  margin: 0 auto;
+}
+
+#skills,
+#contact {
+  padding: var(--space-xl) var(--space-lg);
+  max-width: 1100px;
   margin: 0 auto;
 }
 
@@ -178,23 +233,29 @@ nav a:hover {
   margin-bottom: var(--space-sm);
 }
 
-/* ---------- Skills ---------- */
+/* ---------- Skills (Day 5: CSS Grid) ---------- */
 
-.skills-list {
-  list-style: none;
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-sm);
 }
 
-.skills-list li {
+.skill-card {
   padding: var(--space-sm);
-  margin-bottom: var(--space-xs);
   background: var(--color-bg-alt);
   border: 1px solid var(--color-border);
   border-radius: var(--radius);
-  font-size: var(--text-sm);
 }
 
-.skills-list li strong {
-  color: var(--color-text);
+.skill-card h3 {
+  font-size: var(--text-base);
+  margin-bottom: 0.3rem;
+}
+
+.skill-card p {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
 }
 
 /* ---------- Education ---------- */
@@ -216,7 +277,32 @@ nav a:hover {
   font-size: var(--text-sm);
 }
 
-/* ---------- Contact form ---------- */
+/* ---------- Contact (Day 5: two-column Grid) ---------- */
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: var(--space-lg);
+  align-items: start;
+}
+
+.contact-info p {
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-sm);
+}
+
+.contact-links {
+  list-style: none;
+}
+
+.contact-links li {
+  margin-bottom: 0.4rem;
+}
+
+.contact-links a {
+  text-decoration: none;
+  font-weight: 600;
+}
 
 #contact-form {
   display: flex;
