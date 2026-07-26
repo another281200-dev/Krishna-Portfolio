@@ -2,8 +2,9 @@
    style.css
    Day 1: base reset
    Day 2-3: layout for hero/about/nav/skills/education/contact/footer
-   Day 4: typography, color system, spacing scale, buttons (THIS PASS)
-   Day 5-6: responsive breakpoints (Flexbox/Grid + media queries)
+   Day 4: typography, color system, spacing scale, buttons
+   Day 5: Flexbox/Grid layout structure (hero, skills, contact)
+   Day 6: media queries for tablet (≤768px) and mobile (≤480px)
    ========================================= */
 
 :root {
@@ -372,4 +373,94 @@ footer {
 
 .footer-links a:hover {
   color: var(--color-primary);
+}
+
+/* =========================================
+   Day 6: Media Queries
+   Optimizing for tablet and mobile.
+   Desktop styles above are the default;
+   these queries override for smaller screens.
+   ========================================= */
+
+/* ---------- Tablet (max-width: 768px) ---------- */
+
+@media (max-width: 768px) {
+  :root {
+    --space-xl: 3rem;
+    --space-lg: 2rem;
+  }
+
+  .hero {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: left;
+  }
+
+  .hero-facts {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .fact-card {
+    flex: 1 1 150px;
+  }
+
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  nav {
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+  }
+}
+
+/* ---------- Mobile (max-width: 480px) ---------- */
+
+@media (max-width: 480px) {
+  :root {
+    --text-2xl: 1.9rem;
+    --text-xl: 1.4rem;
+    --text-lg: 1.1rem;
+  }
+
+  nav {
+    padding: var(--space-sm);
+    gap: var(--space-sm) var(--space-md);
+    font-size: var(--text-sm);
+  }
+
+  .hero,
+  #about,
+  #skills,
+  #education,
+  #contact {
+    padding: var(--space-lg) var(--space-sm);
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-facts {
+    flex-direction: column;
+  }
+
+  #contact-form button {
+    width: 100%;
+  }
+
+  footer {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-links a {
+    margin: 0 var(--space-xs);
+  }
 }
