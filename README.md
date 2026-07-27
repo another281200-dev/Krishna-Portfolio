@@ -37,6 +37,10 @@ portfolio/
   typography scale, spacing scale, and styled buttons/nav/form/cards.
 - Day 5: Rebuilt key sections with Flexbox and CSS Grid — a flex split
   hero layout, a skills grid, and a two-column contact grid.
+- Day 6: Added media queries for tablet (≤768px) and mobile (≤480px) —
+  stacked hero, single-column grids, wrapped nav, full-width buttons.
+- Day 7: Learned JavaScript basics — added a working scroll-to-top button,
+  active nav link highlighting on scroll, and DOM event handling.
 - Day 6: Added media queries to optimize for tablet (≤768px) and mobile
   (≤480px) — hero stacks vertically, skills/contact grids collapse to
   one column, nav wraps, type scale shrinks.
