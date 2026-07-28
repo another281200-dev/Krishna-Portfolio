@@ -41,6 +41,8 @@ portfolio/
   stacked hero, single-column grids, wrapped nav, full-width buttons.
 - Day 7: Learned JavaScript basics — added a working scroll-to-top button,
   active nav link highlighting on scroll, and DOM event handling.
+- Day 8: Built the Projects section with three real project cards (CRM
+  Dashboard, E-Commerce Frontend, Auth UI) in a responsive CSS Grid.
 - Day 6: Added media queries to optimize for tablet (≤768px) and mobile
   (≤480px) — hero stacks vertically, skills/contact grids collapse to
   one column, nav wraps, type scale shrinks.
