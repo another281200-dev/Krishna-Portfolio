@@ -253,6 +253,7 @@ nav a.active-link {
 
 #skills,
 #projects,
+#experience,
 #contact {
   padding: var(--space-xl) var(--space-lg);
   max-width: 1100px;
@@ -262,6 +263,7 @@ nav a.active-link {
 #about h2,
 #skills h2,
 #projects h2,
+#experience h2,
 #education h2,
 #contact h2 {
   font-size: var(--text-xl);
@@ -308,6 +310,36 @@ nav a.active-link {
   display: flex;
   flex-direction: column;
   gap: 0.35rem;
+}
+
+/* ---------- Experience (Day 9) ---------- */
+
+.experience-timeline {
+  border-left: 2px solid var(--color-border);
+  padding-left: var(--space-md);
+}
+
+.experience-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding-bottom: var(--space-sm);
+}
+
+.experience-period {
+  font-size: var(--text-sm);
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+.experience-body h3 {
+  font-size: var(--text-lg);
+  margin: 0.2rem 0;
+}
+
+.experience-body p {
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
 }
 
 /* ---------- Skills (Day 5: CSS Grid) ---------- */
