@@ -545,6 +545,8 @@ footer {
   .hero,
   #about,
   #skills,
+  #projects,
+  #experience,
   #education,
   #contact {
     padding: var(--space-lg) var(--space-sm);
