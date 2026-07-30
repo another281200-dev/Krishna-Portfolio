@@ -6,6 +6,8 @@
    Day 5: Flexbox/Grid layout structure (hero, skills, contact)
    Day 6: media queries for tablet (≤768px) and mobile (≤480px)
    Day 8: projects grid
+   Day 9: experience timeline
+   Day 10: contact form validation states
    ========================================= */
 
 :root {
@@ -440,6 +442,44 @@ nav a.active-link {
 #contact-form textarea:focus {
   outline: 2px solid var(--color-primary);
   outline-offset: 1px;
+}
+
+/* ---------- Form validation states (Day 10) ---------- */
+
+#contact-form input.invalid,
+#contact-form textarea.invalid {
+  border-color: #d92d20;
+  outline-color: #d92d20;
+}
+
+.form-error {
+  display: block;
+  min-height: 1.1em;
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: #d92d20;
+}
+
+.form-status {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  padding: 0.6rem 0.9rem;
+  border-radius: var(--radius);
+  display: none;
+}
+
+.form-status.success {
+  display: block;
+  color: #067647;
+  background: #ecfdf3;
+  border: 1px solid #abefc6;
+}
+
+.form-status.error {
+  display: block;
+  color: #d92d20;
+  background: #fef3f2;
+  border: 1px solid #fecdca;
 }
 
 #contact-form button {

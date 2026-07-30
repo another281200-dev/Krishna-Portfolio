@@ -3,17 +3,91 @@
 // Day 3: basic contact form submit handler
 // Day 7: real DOM manipulation - button events, scroll-to-top,
 //        active nav link highlighting on scroll
+// Day 10: professional contact form validation (THIS PASS)
 
 console.log("Portfolio project initialized");
 
 document.addEventListener("DOMContentLoaded", () => {
 
-  // ---------- Contact form (placeholder, real validation on Day 10) ----------
+  // ---------- Contact form validation (Day 10) ----------
   const form = document.getElementById("contact-form");
+
   if (form) {
+    const nameInput = document.getElementById("contact-name");
+    const emailInput = document.getElementById("contact-email");
+    const messageInput = document.getElementById("contact-message");
+
+    const errorName = document.getElementById("error-name");
+    const errorEmail = document.getElementById("error-email");
+    const errorMessage = document.getElementById("error-message");
+    const formStatus = document.getElementById("form-status");
+
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    function validateName() {
+      const value = nameInput.value.trim();
+      if (value.length < 2) {
+        errorName.textContent = "Please enter your name (at least 2 characters).";
+        nameInput.classList.add("invalid");
+        return false;
+      }
+      errorName.textContent = "";
+      nameInput.classList.remove("invalid");
+      return true;
+    }
+
+    function validateEmail() {
+      const value = emailInput.value.trim();
+      if (!emailPattern.test(value)) {
+        errorEmail.textContent = "Please enter a valid email address.";
+        emailInput.classList.add("invalid");
+        return false;
+      }
+      errorEmail.textContent = "";
+      emailInput.classList.remove("invalid");
+      return true;
+    }
+
+    function validateMessage() {
+      const value = messageInput.value.trim();
+      if (value.length < 10) {
+        errorMessage.textContent = "Message should be at least 10 characters.";
+        messageInput.classList.add("invalid");
+        return false;
+      }
+      errorMessage.textContent = "";
+      messageInput.classList.remove("invalid");
+      return true;
+    }
+
+    // Validate each field as the user leaves it (blur)
+    nameInput.addEventListener("blur", validateName);
+    emailInput.addEventListener("blur", validateEmail);
+    messageInput.addEventListener("blur", validateMessage);
+
+    // Clear an error as soon as the user starts fixing that field
+    nameInput.addEventListener("input", () => { if (nameInput.classList.contains("invalid")) validateName(); });
+    emailInput.addEventListener("input", () => { if (emailInput.classList.contains("invalid")) validateEmail(); });
+    messageInput.addEventListener("input", () => { if (messageInput.classList.contains("invalid")) validateMessage(); });
+
     form.addEventListener("submit", (e) => {
       e.preventDefault();
-      alert("Thanks for reaching out! (Full validation coming Day 10.)");
+
+      const isNameValid = validateName();
+      const isEmailValid = validateEmail();
+      const isMessageValid = validateMessage();
+
+      if (!isNameValid || !isEmailValid || !isMessageValid) {
+        formStatus.textContent = "Please fix the errors above before submitting.";
+        formStatus.classList.remove("success");
+        formStatus.classList.add("error");
+        return;
+      }
+
+      // All fields valid - simulate a successful submission
+      formStatus.textContent = "Thanks for reaching out! I'll get back to you soon.";
+      formStatus.classList.remove("error");
+      formStatus.classList.add("success");
       form.reset();
     });
   }
@@ -22,7 +96,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const backToTopBtn = document.getElementById("back-to-top");
 
   if (backToTopBtn) {
-    // Show the button only after scrolling down a bit
     const toggleBackToTopVisibility = () => {
       if (window.scrollY > 300) {
         backToTopBtn.classList.add("visible");
@@ -32,7 +105,7 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     window.addEventListener("scroll", toggleBackToTopVisibility);
-    toggleBackToTopVisibility(); // set initial state
+    toggleBackToTopVisibility();
 
     backToTopBtn.addEventListener("click", () => {
       window.scrollTo({ top: 0, behavior: "smooth" });
@@ -62,6 +135,6 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   window.addEventListener("scroll", highlightActiveNavLink);
-  highlightActiveNavLink(); // set initial state on page load
+  highlightActiveNavLink();
 
 });
