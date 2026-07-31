@@ -3,7 +3,8 @@
 // Day 3: basic contact form submit handler
 // Day 7: real DOM manipulation - button events, scroll-to-top,
 //        active nav link highlighting on scroll
-// Day 10: professional contact form validation (THIS PASS)
+// Day 10: professional contact form validation
+// Day 11: scroll-reveal animations via IntersectionObserver
 
 console.log("Portfolio project initialized");
 
@@ -136,5 +137,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
   window.addEventListener("scroll", highlightActiveNavLink);
   highlightActiveNavLink();
+
+  // ---------- Scroll-reveal animations (Day 11) ----------
+  const revealElements = document.querySelectorAll(".reveal-on-scroll");
+
+  if (revealElements.length && "IntersectionObserver" in window) {
+    const revealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("active");
+            revealObserver.unobserve(entry.target); // animate in once
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+
+    revealElements.forEach((el) => revealObserver.observe(el));
+  } else {
+    // Fallback: just show everything if IntersectionObserver isn't supported
+    revealElements.forEach((el) => el.classList.add("active"));
+  }
 
 });

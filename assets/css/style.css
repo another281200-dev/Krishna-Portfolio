@@ -8,6 +8,7 @@
    Day 8: projects grid
    Day 9: experience timeline
    Day 10: contact form validation states
+   Day 11: smooth scroll, hover transitions, scroll-reveal animations
    ========================================= */
 
 :root {
@@ -43,6 +44,10 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -169,6 +174,13 @@ nav a.active-link {
   background: var(--color-bg);
   border: 1px solid var(--color-border);
   border-radius: var(--radius);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.fact-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--color-primary);
+  box-shadow: 0 6px 16px rgba(33, 81, 255, 0.1);
 }
 
 .fact-label {
@@ -293,6 +305,13 @@ nav a.active-link {
   display: flex;
   flex-direction: column;
   gap: var(--space-xs);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-primary);
+  box-shadow: 0 10px 24px rgba(33, 81, 255, 0.12);
 }
 
 .project-card h3 {
@@ -357,6 +376,12 @@ nav a.active-link {
   background: var(--color-bg-alt);
   border: 1px solid var(--color-border);
   border-radius: var(--radius);
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.skill-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--color-primary);
 }
 
 .skill-card h3 {
@@ -521,6 +546,39 @@ footer {
 
 .footer-links a:hover {
   color: var(--color-primary);
+}
+
+/* ---------- Scroll-reveal animations (Day 11) ---------- */
+
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal-on-scroll.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Respect users who've asked for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal-on-scroll {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .fact-card,
+  .project-card,
+  .skill-card,
+  .btn {
+    transition: none;
+  }
 }
 
 /* =========================================

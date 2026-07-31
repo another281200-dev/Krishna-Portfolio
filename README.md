@@ -47,3 +47,6 @@ portfolio/
   covering the current Codomax internship.
 - Day 10: Built professional contact form validation — inline error
   messages, blur/input validation, and a success/error status message.
+- Day 11: Added smooth scrolling, hover transitions on cards/buttons,
+  and scroll-reveal animations (IntersectionObserver), with a
+  prefers-reduced-motion fallback for accessibility.
