@@ -26,6 +26,11 @@ portfolio/
 1. Clone this repository
 2. Open index.html in your browser, or use a live server extension in VS Code
 
+## Deployment
+This project is deployed via GitHub Pages.
+Live site: _add your GitHub Pages URL here once deployed_
+(e.g. https://another281200-dev.github.io/portfolio/)
+
 ## Progress Log
 - Day 1: Installed VS Code, Git, Chrome + extensions. Created GitHub repo,
   initialized project skeleton (HTML/CSS/JS structure).
@@ -50,3 +55,5 @@ portfolio/
 - Day 11: Added smooth scrolling, hover transitions on cards/buttons,
   and scroll-reveal animations (IntersectionObserver), with a
   prefers-reduced-motion fallback for accessibility.
+- Day 12: Deployed the site to GitHub Pages via git commands (see
+  Deployment section above for the live link).
