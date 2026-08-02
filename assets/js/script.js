@@ -5,6 +5,7 @@
 //        active nav link highlighting on scroll
 // Day 10: professional contact form validation
 // Day 11: scroll-reveal animations via IntersectionObserver
+// Day 13: performance - throttled scroll handlers via requestAnimationFrame
 
 console.log("Portfolio project initialized");
 
@@ -96,18 +97,16 @@ document.addEventListener("DOMContentLoaded", () => {
   // ---------- Back to top button ----------
   const backToTopBtn = document.getElementById("back-to-top");
 
+  const toggleBackToTopVisibility = () => {
+    if (!backToTopBtn) return;
+    if (window.scrollY > 300) {
+      backToTopBtn.classList.add("visible");
+    } else {
+      backToTopBtn.classList.remove("visible");
+    }
+  };
+
   if (backToTopBtn) {
-    const toggleBackToTopVisibility = () => {
-      if (window.scrollY > 300) {
-        backToTopBtn.classList.add("visible");
-      } else {
-        backToTopBtn.classList.remove("visible");
-      }
-    };
-
-    window.addEventListener("scroll", toggleBackToTopVisibility);
-    toggleBackToTopVisibility();
-
     backToTopBtn.addEventListener("click", () => {
       window.scrollTo({ top: 0, behavior: "smooth" });
     });
@@ -135,7 +134,28 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   };
 
-  window.addEventListener("scroll", highlightActiveNavLink);
+  // Day 13 performance fix: both scroll handlers used to run on every
+  // single "scroll" event, which fires far more often than the browser
+  // can actually repaint. Batching them behind requestAnimationFrame
+  // means the work runs at most once per frame instead of dozens of
+  // times per second, cutting unnecessary layout/style recalculation.
+  let scrollTicking = false;
+
+  const onScroll = () => {
+    if (!scrollTicking) {
+      window.requestAnimationFrame(() => {
+        toggleBackToTopVisibility();
+        highlightActiveNavLink();
+        scrollTicking = false;
+      });
+      scrollTicking = true;
+    }
+  };
+
+  window.addEventListener("scroll", onScroll, { passive: true });
+
+  // Run once on load to set correct initial state
+  toggleBackToTopVisibility();
   highlightActiveNavLink();
 
   // ---------- Scroll-reveal animations (Day 11) ----------

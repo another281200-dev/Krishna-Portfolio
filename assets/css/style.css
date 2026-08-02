@@ -12,6 +12,7 @@
    Redesign: "field notes" theme - warm paper background, Fraunces
    display serif + Inter body + JetBrains Mono for path-style labels,
    flat index-card layout instead of boxed dashboard cards.
+   Day 13: mobile fact-row wrap fix, italic font-weight bug fix
    ========================================= */
 
 :root {
@@ -676,6 +677,14 @@ footer {
   #education,
   #contact {
     padding: var(--space-lg) var(--space-sm);
+  }
+
+  .fact-row {
+    flex-wrap: wrap;
+  }
+
+  .fact-value {
+    text-align: left;
   }
 
   .hero-actions {
