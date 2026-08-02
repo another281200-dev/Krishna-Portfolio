@@ -1,59 +1,229 @@
-# My Portfolio Website
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Krishna Nand Gupta | Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
 
-Personal portfolio website - built as part of the Codomax Digital Solutions
-Web Development Internship (14-day project).
+  <!-- Day 3: Nav, Skills, Education, Contact form, and Footer added
+       with semantic HTML. Styling/layout polish comes Day 4-6. -->
 
-## Status
-Day 1 of 14 - project setup and repository initialization.
+  <nav aria-label="Primary" id="main-nav">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#experience">Experience</a>
+    <a href="#education">Education</a>
+    <a href="#contact">Contact</a>
+  </nav>
 
-## Tech Stack (planned)
-- HTML5
-- CSS3 (Flexbox / Grid)
-- Vanilla JavaScript
+  <header id="home" class="hero">
+    <div class="hero-content">
+      <p class="eyebrow"><span class="status-dot"></span>gorakhpur, in &mdash; open to internships</p>
+      <h1>Hi, I'm <span class="highlight">Krishna Nand Gupta</span></h1>
+      <h2>Frontend Developer &amp; Computer Science Undergraduate</h2>
+      <p class="tagline">
+        I build responsive React.js web applications, reusable component
+        libraries, and API-integrated frontends with Tailwind CSS.
+      </p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn">Get In Touch</a>
+        <a href="assets/Krishna_Nand_Gupta_Resume.pdf" class="btn btn-outline" download>Download Resume</a>
+      </div>
+    </div>
+    <div class="hero-facts">
+      <div class="fact-row">
+        <span class="fact-label">education</span>
+        <span class="fact-value">B.Tech CSE &middot; 2027</span>
+      </div>
+      <div class="fact-row">
+        <span class="fact-label">based in</span>
+        <span class="fact-value">Gorakhpur, UP</span>
+      </div>
+      <div class="fact-row">
+        <span class="fact-label">focus</span>
+        <span class="fact-value">React &amp; Tailwind</span>
+      </div>
+    </div>
+  </header>
 
-## Project Structure
-```
-portfolio/
-  index.html
-  assets/
-    css/style.css
-    js/script.js
-    images/
-  README.md
-```
+  <main>
 
-## Setup
-1. Clone this repository
-2. Open index.html in your browser, or use a live server extension in VS Code
+    <section id="about" class="reveal-on-scroll">
+      <p class="section-path">~/about</p>
+      <h2>About Me</h2>
+      <p>
+        I'm a Computer Science undergraduate at Ambalika Institute of
+        Management and Technology, Lucknow (expected graduation 2027),
+        currently based in Gorakhpur, Uttar Pradesh. I'm detail-oriented
+        and focused on building responsive, production-grade UI —
+        from dashboard systems to e-commerce frontends — using React.js,
+        Tailwind CSS, and modern JavaScript.
+      </p>
+      <p>
+        I'm currently seeking a frontend internship where I can contribute
+        to real-world dashboard systems and production-grade UI modules,
+        and I'm comfortable working in GitHub-based collaborative
+        workflows with feature branching and pull requests.
+      </p>
+    </section>
 
-## Deployment
-This project is deployed via GitHub Pages.
-Live site: _add your GitHub Pages URL here once deployed_
-(e.g. https://another281200-dev.github.io/portfolio/)
+    <section id="skills" class="reveal-on-scroll">
+      <p class="section-path">~/skills</p>
+      <h2>Technical Skills</h2>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <h3>Languages</h3>
+          <p>JavaScript (ES6+), HTML5, CSS3</p>
+        </div>
+        <div class="skill-card">
+          <h3>Frameworks &amp; Libraries</h3>
+          <p>React.js, Tailwind CSS</p>
+        </div>
+        <div class="skill-card">
+          <h3>Tools</h3>
+          <p>Git, GitHub, VS Code, Vercel, GitHub Actions</p>
+        </div>
+        <div class="skill-card">
+          <h3>Concepts</h3>
+          <p>Responsive Web Design, Reusable Component Architecture,
+            Dashboard Systems, API Integration, DOM Manipulation, UI/UX Design</p>
+        </div>
+      </div>
+    </section>
 
-## Progress Log
-- Day 1: Installed VS Code, Git, Chrome + extensions. Created GitHub repo,
-  initialized project skeleton (HTML/CSS/JS structure).
-- Day 2: Learned HTML basics and built the Home, Hero, and About sections
-  with real content and semantic markup.
-- Day 3: Added semantic navigation, Skills, Education, and Contact form
-  sections, plus a real footer with GitHub/LinkedIn links.
-- Day 4: Styled the site with CSS — custom properties for a color system,
-  typography scale, spacing scale, and styled buttons/nav/form/cards.
-- Day 5: Rebuilt key sections with Flexbox and CSS Grid — a flex split
-  hero layout, a skills grid, and a two-column contact grid.
-- Day 6: Added media queries for tablet (≤768px) and mobile (≤480px) —
-  stacked hero, single-column grids, wrapped nav, full-width buttons.
-- Day 7: Learned JavaScript basics — added a working scroll-to-top button,
-  active nav link highlighting on scroll, and DOM event handling.
-- Day 8: Built the Projects section with three real project cards (CRM
-  Dashboard, E-Commerce Frontend, Auth UI) in a responsive CSS Grid.
-- Day 9: Added a downloadable resume PDF and an Experience section
-  covering the current Codomax internship.
-- Day 10: Built professional contact form validation — inline error
-  messages, blur/input validation, and a success/error status message.
-- Day 11: Added smooth scrolling, hover transitions on cards/buttons,
-  and scroll-reveal animations (IntersectionObserver), with a
-  prefers-reduced-motion fallback for accessibility.
-- Day 12: Deployed the site to GitHub Pages via git commands (see
-  Deployment section above for the live link).
+    <section id="projects" class="reveal-on-scroll">
+      <p class="section-path">~/projects</p>
+      <h2>Projects</h2>
+      <div class="projects-grid">
+
+        <article class="project-card">
+          <h3>Customer Relationship Management (CRM) Dashboard</h3>
+          <p class="project-stack">React.js · Tailwind CSS · JavaScript · GitHub</p>
+          <ul>
+            <li>Architected a responsive React dashboard with modular,
+              reusable components, improving administrator task efficiency
+              by approximately 35%.</li>
+            <li>Reduced average page load time by approximately 40%
+              through optimized React rendering and API-integrated state
+              management.</li>
+            <li>Led a 3-person GitHub workflow using feature branching,
+              pull requests, and weekly meetings.</li>
+          </ul>
+        </article>
+
+        <article class="project-card">
+          <h3>E-Commerce Website Frontend</h3>
+          <p class="project-stack">React.js · Tailwind CSS · Responsive Design · Vercel</p>
+          <ul>
+            <li>Built a fully responsive frontend supporting multiple
+              screen breakpoints.</li>
+            <li>Developed reusable React components including product
+              cards, navigation bars, and filter drawers.</li>
+            <li>Integrated deployment with Vercel and GitHub for
+              continuous deployment.</li>
+          </ul>
+        </article>
+
+        <article class="project-card">
+          <h3>User Registration &amp; Authentication UI</h3>
+          <p class="project-stack">HTML5 · CSS3 · JavaScript · DOM Manipulation</p>
+          <ul>
+            <li>Implemented real-time form validation, reducing form
+              submission errors.</li>
+            <li>Applied semantic HTML, ARIA labels, and keyboard
+              accessibility.</li>
+            <li>Developed reusable input components for future projects.</li>
+          </ul>
+        </article>
+
+      </div>
+    </section>
+
+    <section id="education" class="reveal-on-scroll">
+      <p class="section-path">~/education</p>
+      <h2>Education</h2>
+      <article>
+        <h3>Bachelor of Technology (B.Tech.) in Computer Science and Engineering</h3>
+        <p>Ambalika Institute of Management and Technology, Lucknow, Uttar Pradesh</p>
+        <p>Expected Graduation: 2027</p>
+      </article>
+    </section>
+
+    <section id="experience" class="reveal-on-scroll">
+      <p class="section-path">~/experience</p>
+      <h2>Experience</h2>
+      <div class="experience-timeline">
+        <article class="experience-item">
+          <div class="experience-meta">
+            <span class="experience-period">2026 &ndash; Present</span>
+          </div>
+          <div class="experience-body">
+            <h3>Web Development Intern</h3>
+            <p class="project-stack">Codomax Digital Solutions</p>
+            <p>Building a fully responsive personal portfolio website from
+              scratch over a structured 14-day program &mdash; covering
+              semantic HTML, CSS layout systems (Flexbox/Grid), vanilla
+              JavaScript interactivity, Git/GitHub workflows, and
+              deployment via GitHub Pages.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact" class="reveal-on-scroll">
+      <p class="section-path">~/contact</p>
+      <h2>Contact Me</h2>
+      <div class="contact-grid">
+        <div class="contact-info">
+          <p>Have an internship opportunity or want to collaborate on a
+            project? Send a message and I'll get back to you.</p>
+          <ul class="contact-links">
+            <li><a href="https://github.com/another281200-dev" target="_blank" rel="noopener noreferrer">GitHub →</a></li>
+            <li><a href="https://www.linkedin.com/in/krishna-nand-gupta-894629385/" target="_blank" rel="noopener noreferrer">LinkedIn →</a></li>
+          </ul>
+        </div>
+        <form id="contact-form" novalidate>
+          <label for="contact-name">Name
+            <input type="text" id="contact-name" name="name" required minlength="2" />
+            <span class="form-error" id="error-name" aria-live="polite"></span>
+          </label>
+
+          <label for="contact-email">Email
+            <input type="email" id="contact-email" name="email" required />
+            <span class="form-error" id="error-email" aria-live="polite"></span>
+          </label>
+
+          <label for="contact-message">Message
+            <textarea id="contact-message" name="message" rows="5" required minlength="10"></textarea>
+            <span class="form-error" id="error-message" aria-live="polite"></span>
+          </label>
+
+          <button type="submit">Send Message</button>
+          <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Krishna Nand Gupta. All rights reserved.</p>
+    <div class="footer-links">
+      <a href="https://github.com/another281200-dev" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href="https://www.linkedin.com/in/krishna-nand-gupta-894629385/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    </div>
+  </footer>
+
+  <button id="back-to-top" aria-label="Back to top" title="Back to top">↑</button>
+
+  <script src="assets/js/script.js"></script>
+</body>
+</html>

@@ -9,17 +9,20 @@
    Day 9: experience timeline
    Day 10: contact form validation states
    Day 11: smooth scroll, hover transitions, scroll-reveal animations
+   Redesign: "field notes" theme - warm paper background, Fraunces
+   display serif + Inter body + JetBrains Mono for path-style labels,
+   flat index-card layout instead of boxed dashboard cards.
    ========================================= */
 
 :root {
-  /* Color system */
-  --color-bg: #ffffff;
-  --color-bg-alt: #f7f7f9;
-  --color-text: #1a1a1a;
-  --color-text-muted: #5a5a5a;
-  --color-primary: #2151ff;
-  --color-primary-dark: #173bbf;
-  --color-border: #e2e2e6;
+  /* Color system - warm paper + graphite ink + pine accent */
+  --color-bg: #f4f3ee;
+  --color-bg-alt: #fbfaf7;
+  --color-text: #23241f;
+  --color-text-muted: #6b6a60;
+  --color-primary: #0f6b5c;
+  --color-primary-dark: #0a4e43;
+  --color-border: #ddd9cc;
 
   /* Spacing scale */
   --space-xs: 0.5rem;
@@ -29,15 +32,16 @@
   --space-xl: 4.5rem;
 
   /* Typography scale */
-  --font-heading: 'Segoe UI', system-ui, -apple-system, sans-serif;
-  --font-body: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  --font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
+  --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', 'SFMono-Regular', Consolas, monospace;
   --text-sm: 0.9rem;
   --text-base: 1rem;
   --text-lg: 1.25rem;
-  --text-xl: 1.75rem;
-  --text-2xl: 2.5rem;
+  --text-xl: 1.85rem;
+  --text-2xl: 2.75rem;
 
-  --radius: 6px;
+  --radius: 3px;
 }
 
 * {
@@ -53,20 +57,33 @@ html {
 body {
   font-family: var(--font-body);
   font-size: var(--text-base);
-  line-height: 1.6;
+  line-height: 1.65;
   color: var(--color-text);
   background: var(--color-bg);
 }
 
 h1, h2, h3 {
-  font-family: var(--font-heading);
-  font-weight: 700;
-  line-height: 1.2;
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.15;
   color: var(--color-text);
+  letter-spacing: -0.01em;
 }
 
 a {
   color: var(--color-primary);
+}
+
+/* ---------- Section path labels (signature element) ----------
+   Mirrors each section's real #id / URL fragment - a small,
+   consistent "you are here" marker rather than decoration. */
+
+.section-path {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--color-primary);
+  letter-spacing: 0.02em;
+  margin-bottom: var(--space-xs);
 }
 
 /* ---------- Navigation ---------- */
@@ -78,7 +95,8 @@ nav {
   border-bottom: 1px solid var(--color-border);
   position: sticky;
   top: 0;
-  background: var(--color-bg);
+  background: rgba(244, 243, 238, 0.92);
+  backdrop-filter: blur(6px);
   z-index: 10;
 }
 
@@ -86,8 +104,8 @@ nav a {
   text-decoration: none;
   color: var(--color-text);
   font-size: var(--text-sm);
-  font-weight: 600;
-  letter-spacing: 0.02em;
+  font-weight: 500;
+  letter-spacing: 0.01em;
   padding: var(--space-xs) 0;
   border-bottom: 2px solid transparent;
   transition: border-color 0.2s ease, color 0.2s ease;
@@ -103,7 +121,7 @@ nav a.active-link {
   border-bottom-color: var(--color-primary);
 }
 
-/* ---------- Back to top button (Day 7) ---------- */
+/* ---------- Back to top button ---------- */
 
 #back-to-top {
   position: fixed;
@@ -134,11 +152,13 @@ nav a.active-link {
   background: var(--color-primary-dark);
 }
 
-/* ---------- Hero (Day 5: Flexbox split layout) ---------- */
+/* ---------- Hero ---------- */
 
 .hero {
   padding: var(--space-xl) var(--space-lg);
-  background: var(--color-bg-alt);
+  background:
+    radial-gradient(circle, rgba(35, 36, 31, 0.08) 1px, transparent 1px) 0 0 / 22px 22px,
+    var(--color-bg);
   border-bottom: 1px solid var(--color-border);
   display: flex;
   gap: var(--space-xl);
@@ -162,45 +182,54 @@ nav a.active-link {
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: var(--space-sm);
   min-width: 220px;
-}
-
-.fact-card {
-  display: flex;
-  flex-direction: column;
-  gap: 0.2rem;
-  padding: var(--space-sm);
-  background: var(--color-bg);
+  background: var(--color-bg-alt);
   border: 1px solid var(--color-border);
   border-radius: var(--radius);
-  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
-.fact-card:hover {
-  transform: translateY(-3px);
-  border-color: var(--color-primary);
-  box-shadow: 0 6px 16px rgba(33, 81, 255, 0.1);
+.fact-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--space-sm);
+  padding: var(--space-sm);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.fact-row:last-child {
+  border-bottom: none;
 }
 
 .fact-label {
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  text-transform: lowercase;
+  letter-spacing: 0.02em;
   color: var(--color-text-muted);
 }
 
 .fact-value {
   font-weight: 600;
+  text-align: right;
 }
 
 .eyebrow {
-  text-transform: uppercase;
-  font-size: var(--text-sm);
-  letter-spacing: 0.08em;
-  color: var(--color-primary);
-  font-weight: 600;
-  margin-bottom: var(--space-xs);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-sm);
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  display: inline-block;
 }
 
 .hero h1 {
@@ -209,6 +238,7 @@ nav a.active-link {
 }
 
 .hero h2 {
+  font-family: var(--font-body);
   font-size: var(--text-lg);
   font-weight: 500;
   color: var(--color-text-muted);
@@ -216,6 +246,7 @@ nav a.active-link {
 }
 
 .highlight {
+  font-style: italic;
   color: var(--color-primary);
 }
 
@@ -256,7 +287,7 @@ nav a.active-link {
   color: #fff;
 }
 
-/* ---------- Section layout (Day 5: wider containers for grid content) ---------- */
+/* ---------- Section layout ---------- */
 
 #about,
 #education {
@@ -289,7 +320,9 @@ nav a.active-link {
   margin-bottom: var(--space-sm);
 }
 
-/* ---------- Projects (Day 8) ---------- */
+/* ---------- Projects ----------
+   Flat index-card style: thin left accent bar instead of a full
+   boxed shadowed card, closer to a written entry than a dashboard tile. */
 
 .projects-grid {
   display: grid;
@@ -301,27 +334,28 @@ nav a.active-link {
   padding: var(--space-md);
   background: var(--color-bg-alt);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius);
+  border-left: 3px solid var(--color-primary);
+  border-radius: 0 var(--radius) var(--radius) 0;
   display: flex;
   flex-direction: column;
   gap: var(--space-xs);
-  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  transition: transform 0.2s ease, border-left-width 0.2s ease;
 }
 
 .project-card:hover {
-  transform: translateY(-4px);
-  border-color: var(--color-primary);
-  box-shadow: 0 10px 24px rgba(33, 81, 255, 0.12);
+  transform: translateX(3px);
+  border-left-width: 5px;
 }
 
 .project-card h3 {
   font-size: var(--text-base);
+  font-weight: 600;
 }
 
 .project-stack {
-  font-size: var(--text-sm);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
   color: var(--color-primary);
-  font-weight: 600;
 }
 
 .project-card ul {
@@ -333,7 +367,7 @@ nav a.active-link {
   gap: 0.35rem;
 }
 
-/* ---------- Experience (Day 9) ---------- */
+/* ---------- Experience ---------- */
 
 .experience-timeline {
   border-left: 2px solid var(--color-border);
@@ -348,13 +382,15 @@ nav a.active-link {
 }
 
 .experience-period {
-  font-size: var(--text-sm);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
   color: var(--color-primary);
-  font-weight: 600;
 }
 
 .experience-body h3 {
+  font-family: var(--font-body);
   font-size: var(--text-lg);
+  font-weight: 600;
   margin: 0.2rem 0;
 }
 
@@ -363,7 +399,7 @@ nav a.active-link {
   font-size: var(--text-sm);
 }
 
-/* ---------- Skills (Day 5: CSS Grid) ---------- */
+/* ---------- Skills ---------- */
 
 .skills-grid {
   display: grid;
@@ -376,16 +412,17 @@ nav a.active-link {
   background: var(--color-bg-alt);
   border: 1px solid var(--color-border);
   border-radius: var(--radius);
-  transition: transform 0.2s ease, border-color 0.2s ease;
+  transition: border-color 0.2s ease;
 }
 
 .skill-card:hover {
-  transform: translateY(-3px);
   border-color: var(--color-primary);
 }
 
 .skill-card h3 {
+  font-family: var(--font-body);
   font-size: var(--text-base);
+  font-weight: 600;
   margin-bottom: 0.3rem;
 }
 
@@ -399,12 +436,15 @@ nav a.active-link {
 #education article {
   padding: var(--space-md);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius);
+  border-left: 3px solid var(--color-primary);
+  border-radius: 0 var(--radius) var(--radius) 0;
   background: var(--color-bg-alt);
 }
 
 #education h3 {
+  font-family: var(--font-body);
   font-size: var(--text-lg);
+  font-weight: 600;
   margin-bottom: var(--space-xs);
 }
 
@@ -413,7 +453,7 @@ nav a.active-link {
   font-size: var(--text-sm);
 }
 
-/* ---------- Contact (Day 5: two-column Grid) ---------- */
+/* ---------- Contact ---------- */
 
 .contact-grid {
   display: grid;
@@ -436,8 +476,10 @@ nav a.active-link {
 }
 
 .contact-links a {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
   text-decoration: none;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 #contact-form {
@@ -459,8 +501,10 @@ nav a.active-link {
   padding: 0.65rem 0.8rem;
   border: 1px solid var(--color-border);
   border-radius: var(--radius);
+  background: var(--color-bg-alt);
   font: inherit;
   font-weight: 400;
+  color: var(--color-text);
 }
 
 #contact-form input:focus,
@@ -469,12 +513,12 @@ nav a.active-link {
   outline-offset: 1px;
 }
 
-/* ---------- Form validation states (Day 10) ---------- */
+/* ---------- Form validation states ---------- */
 
 #contact-form input.invalid,
 #contact-form textarea.invalid {
-  border-color: #d92d20;
-  outline-color: #d92d20;
+  border-color: #b3261e;
+  outline-color: #b3261e;
 }
 
 .form-error {
@@ -482,7 +526,7 @@ nav a.active-link {
   min-height: 1.1em;
   font-size: 0.8rem;
   font-weight: 400;
-  color: #d92d20;
+  color: #b3261e;
 }
 
 .form-status {
@@ -495,16 +539,16 @@ nav a.active-link {
 
 .form-status.success {
   display: block;
-  color: #067647;
-  background: #ecfdf3;
-  border: 1px solid #abefc6;
+  color: #0a4e43;
+  background: #e6f2ef;
+  border: 1px solid #b7d9d1;
 }
 
 .form-status.error {
   display: block;
-  color: #d92d20;
-  background: #fef3f2;
-  border: 1px solid #fecdca;
+  color: #b3261e;
+  background: #fbeceb;
+  border: 1px solid #edc4c0;
 }
 
 #contact-form button {
@@ -539,16 +583,18 @@ footer {
 
 .footer-links a {
   margin-left: var(--space-sm);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
   color: var(--color-text-muted);
   text-decoration: none;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .footer-links a:hover {
   color: var(--color-primary);
 }
 
-/* ---------- Scroll-reveal animations (Day 11) ---------- */
+/* ---------- Scroll-reveal animations ---------- */
 
 .reveal-on-scroll {
   opacity: 0;
@@ -561,7 +607,6 @@ footer {
   transform: translateY(0);
 }
 
-/* Respect users who've asked for reduced motion */
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -573,7 +618,6 @@ footer {
     transition: none;
   }
 
-  .fact-card,
   .project-card,
   .skill-card,
   .btn {
@@ -582,13 +626,8 @@ footer {
 }
 
 /* =========================================
-   Day 6: Media Queries
-   Optimizing for tablet and mobile.
-   Desktop styles above are the default;
-   these queries override for smaller screens.
+   Media Queries
    ========================================= */
-
-/* ---------- Tablet (max-width: 768px) ---------- */
 
 @media (max-width: 768px) {
   :root {
@@ -600,15 +639,6 @@ footer {
     flex-direction: column;
     align-items: stretch;
     text-align: left;
-  }
-
-  .hero-facts {
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
-
-  .fact-card {
-    flex: 1 1 150px;
   }
 
   .skills-grid {
@@ -625,11 +655,9 @@ footer {
   }
 }
 
-/* ---------- Mobile (max-width: 480px) ---------- */
-
 @media (max-width: 480px) {
   :root {
-    --text-2xl: 1.9rem;
+    --text-2xl: 2rem;
     --text-xl: 1.4rem;
     --text-lg: 1.1rem;
   }
@@ -653,10 +681,6 @@ footer {
   .hero-actions {
     flex-direction: column;
     align-items: stretch;
-  }
-
-  .hero-facts {
-    flex-direction: column;
   }
 
   #contact-form button {
