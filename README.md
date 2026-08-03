@@ -1,67 +1,110 @@
-# My Portfolio Website
+# Krishna Nand Gupta — Portfolio Website
 
-Personal portfolio website - built as part of the Codomax Digital Solutions
-Web Development Internship (14-day project).
+A personal portfolio website built with vanilla HTML5, CSS3, and JavaScript
+— no frameworks, no build step. Built as the final project for the
+Codomax Digital Solutions Web Development Internship (14-day program).
 
-## Status
-Day 1 of 14 - project setup and repository initialization.
-
-## Tech Stack (planned)
-- HTML5
-- CSS3 (Flexbox / Grid)
-- Vanilla JavaScript
-
-## Project Structure
-```
-portfolio/
-  index.html
-  assets/
-    css/style.css
-    js/script.js
-    images/
-  README.md
-```
-
-## Setup
-1. Clone this repository
-2. Open index.html in your browser, or use a live server extension in VS Code
-
-## Deployment
-This project is deployed via GitHub Pages.
-Live site: _add your GitHub Pages URL here once deployed_
+**Live site:** _add your GitHub Pages URL here_
 (e.g. https://another281200-dev.github.io/portfolio/)
 
+**Author:** Krishna Nand Gupta — B.Tech CSE, Ambalika Institute of
+Management and Technology, Lucknow (expected 2027)
+[GitHub](https://github.com/another281200-dev) ·
+[LinkedIn](https://www.linkedin.com/in/krishna-nand-gupta-894629385/)
+
+---
+
+## Features
+
+- Responsive layout built with Flexbox and CSS Grid (mobile, tablet, desktop)
+- Semantic, accessible HTML with ARIA-friendly form labeling
+- Custom design system: CSS custom properties for color, type, and spacing
+- Sections: Home, About, Skills, Projects, Experience, Education, Contact
+- Client-side contact form validation (name, email format, message length)
+  with inline error messages and a success/error status banner
+- Scroll-reveal animations via IntersectionObserver, with a
+  `prefers-reduced-motion` fallback for accessibility
+- Scroll-to-top button and active-nav-link highlighting, both throttled
+  with `requestAnimationFrame` for performance
+- Downloadable resume (PDF)
+
+## Tech Stack
+
+- HTML5 (semantic markup)
+- CSS3 (custom properties, Flexbox, Grid, media queries)
+- Vanilla JavaScript (ES6+, DOM APIs, IntersectionObserver)
+- Fonts: Fraunces (display), Inter (body), JetBrains Mono (labels) via
+  Google Fonts
+- Deployed with GitHub Pages
+
+## Project Structure
+
+```
+portfolio/
+├── index.html
+├── README.md
+├── .gitignore
+└── assets/
+    ├── css/
+    │   └── style.css
+    ├── js/
+    │   └── script.js
+    └── Krishna_Nand_Gupta_Resume.pdf
+```
+
+## Running Locally
+
+1. Clone this repository:
+   ```bash
+   git clone https://github.com/another281200-dev/portfolio.git
+   cd portfolio
+   ```
+2. Open `index.html` directly in your browser, or serve it with a live
+   server extension in VS Code for auto-reload during development.
+
+## Deployment
+
+Deployed via **GitHub Pages**:
+1. Pushed to the `main` branch on GitHub
+2. Enabled under repo **Settings → Pages** → Deploy from branch → `main` / `root`
+3. Live at the URL listed at the top of this README
+
+## Design Notes
+
+The visual design follows a "field notes" theme rather than a generic
+template look — a warm paper background, a serif display face (Fraunces)
+paired with a technical monospace label style (JetBrains Mono), and flat
+left-accent index cards instead of boxed dashboard tiles. Each section
+carries a small path-style label (e.g. `~/projects`) that mirrors its
+real URL anchor.
+
 ## Progress Log
-- Day 1: Installed VS Code, Git, Chrome + extensions. Created GitHub repo,
-  initialized project skeleton (HTML/CSS/JS structure).
-- Day 2: Learned HTML basics and built the Home, Hero, and About sections
-  with real content and semantic markup.
-- Day 3: Added semantic navigation, Skills, Education, and Contact form
-  sections, plus a real footer with GitHub/LinkedIn links.
-- Day 4: Styled the site with CSS — custom properties for a color system,
-  typography scale, spacing scale, and styled buttons/nav/form/cards.
-- Day 5: Rebuilt key sections with Flexbox and CSS Grid — a flex split
-  hero layout, a skills grid, and a two-column contact grid.
-- Day 6: Added media queries for tablet (≤768px) and mobile (≤480px) —
-  stacked hero, single-column grids, wrapped nav, full-width buttons.
-- Day 7: Learned JavaScript basics — added a working scroll-to-top button,
-  active nav link highlighting on scroll, and DOM event handling.
-- Day 8: Built the Projects section with three real project cards (CRM
-  Dashboard, E-Commerce Frontend, Auth UI) in a responsive CSS Grid.
-- Day 9: Added a downloadable resume PDF and an Experience section
-  covering the current Codomax internship.
-- Day 10: Built professional contact form validation — inline error
-  messages, blur/input validation, and a success/error status message.
-- Day 11: Added smooth scrolling, hover transitions on cards/buttons,
-  and scroll-reveal animations (IntersectionObserver), with a
-  prefers-reduced-motion fallback for accessibility.
-- Day 12: Deployed the site to GitHub Pages via git commands (see
-  Deployment section above for the live link).
-- Redesign: Replaced the generic blue/rounded-card look with a distinct
-  "field notes" theme — warm paper background, Fraunces display serif +
-  Inter body + JetBrains Mono for path-style section labels, and flat
-  left-accent index cards instead of boxed dashboard tiles.
-- Day 13: Tested responsiveness across breakpoints and fixed real bugs -
-  a font-weight/style mismatch on the italicized hero name, a fact-row
-  wrapping issue on narrow screens, and throttled the scroll event
-  handlers with requestAnimationFrame for smoother performance.
+
+| Day | Focus |
+|---|---|
+| 1 | Environment setup, Git/GitHub init, project skeleton |
+| 2 | Home, Hero, About sections (semantic HTML) |
+| 3 | Navigation, Skills, Education, Contact form, Footer |
+| 4 | CSS styling — typography, color, spacing, buttons |
+| 5 | Responsive layout with Flexbox and CSS Grid |
+| 6 | Media queries — tablet and mobile breakpoints |
+| 7 | JavaScript basics — scroll-to-top, DOM events |
+| 8 | Projects section with real project cards |
+| 9 | Resume download + Experience section |
+| 10 | Contact form validation |
+| 11 | Animations, transitions, smooth scrolling |
+| 12 | Git workflow + GitHub Pages deployment |
+| 13 | Responsiveness testing, bug fixes, performance optimization |
+| 14 | Final documentation, demo video, and submission |
+
+## Known Limitations
+
+- The contact form validates and displays a success state client-side
+  only — it does not currently send real emails (no backend). A future
+  iteration could connect it to a service like Formspree or EmailJS.
+- Tested primarily in Chrome and Edge; should be checked in Firefox and
+  Safari before wider use.
+
+## License
+
+MIT — free to reference for learning purposes.
